@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const backend = "http://localhost:4000";
+const backend = "https://zealthy-backend.onrender.com";
 
 export default function Onboarding() {
   const [step, setStep] = useState(1);
