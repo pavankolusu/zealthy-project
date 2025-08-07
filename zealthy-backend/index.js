@@ -6,10 +6,9 @@ const cors = require("cors");
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-// ✅ Middleware with proper CORS setup for Render
+// ✅ Correct CORS setup for Render (only allow frontend domain)
 app.use(cors({
-  origin: "https://zealthy-frontend-4t3r.onrender.com", // allow only your frontend
-  credentials: true
+  origin: "https://zealthy-frontend-4t3r.onrender.com"
 }));
 app.use(express.json());
 
