@@ -4,11 +4,10 @@ const cors = require("cors");
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-// ✅ Allow requests only from your deployed frontend
+// ✅ FIX: Allow all origins (for now)
 app.use(cors({
-  origin: "https://zealthy-frontend-4t3r.onrender.com",
-  methods: ["GET", "POST"],
-  allowedHeaders: ["Content-Type"]
+  origin: true,
+  credentials: true
 }));
 
 app.use(express.json());
