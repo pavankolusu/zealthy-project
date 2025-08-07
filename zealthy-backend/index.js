@@ -7,7 +7,8 @@ const PORT = process.env.PORT || 4000;
 // ✅ FIX: Allow all origins (for now)
 app.use(cors({
   origin: "https://zealthy-frontend-zpva.onrender.com",
-  credentials: true
+  methods: ["GET", "POST"],
+  allowedHeaders: ["Content-Type"],
 }));
 
 app.use(express.json());
