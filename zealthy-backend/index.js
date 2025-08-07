@@ -4,10 +4,13 @@ const express = require("express");
 const cors = require("cors");
 
 const app = express();
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 
-// Middleware
-app.use(cors());
+// ✅ Middleware with proper CORS setup for Render
+app.use(cors({
+  origin: "https://zealthy-frontend-4t3r.onrender.com", // allow only your frontend
+  credentials: true
+}));
 app.use(express.json());
 
 // 🧩 Initial dynamic form configuration (editable from Admin panel)
@@ -55,18 +58,15 @@ app.post("/api/admin/config", (req, res) => {
 app.post("/api/users", (req, res) => {
   const { email, password } = req.body;
 
-  // Validation
   if (!email || !password) {
     return res.status(400).json({ message: "Email and password are required." });
   }
 
-  // Check for duplicates
   const existingUser = users.find((u) => u.email === email);
   if (existingUser) {
     return res.status(409).json({ message: "User already exists!" });
   }
 
-  // Save user
   users.push(req.body);
   console.log("👤 New user added:", req.body);
   res.status(201).json({ message: "User registered successfully" });
@@ -74,7 +74,7 @@ app.post("/api/users", (req, res) => {
 
 /**
  * @route   GET /api/users
- * @desc    Get all users (for debugging/demo)
+ * @desc    Get all users
  */
 app.get("/api/users", (req, res) => {
   res.status(200).json(users);
