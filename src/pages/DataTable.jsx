@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const backend = "http://localhost:4000";
+const backend = "https://zealthy-backend-5cxb.onrender.com";
 
 export default function Dashboard() {
   const [users, setUsers] = useState([]);

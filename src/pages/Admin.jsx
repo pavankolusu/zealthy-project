@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const backend = "http://localhost:4000";
+const backend = "https://zealthy-backend-5cxb.onrender.com";
 
 export default function Admin() {
   const [config, setConfig] = useState({});
