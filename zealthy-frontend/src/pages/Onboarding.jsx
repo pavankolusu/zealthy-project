@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const backend = "https://zealthy-backend.onrender.com";
+const backend = "https://zealthy-backend-5cxb.onrender.com";
+
 
 export default function Onboarding() {
   const [step, setStep] = useState(1);
